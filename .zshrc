@@ -1,22 +1,13 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
+# See themes --> https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+#ZSH_THEME="af-magic"
 #ZSH_THEME="lambda"
 ZSH_THEME="jr3"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -72,55 +63,39 @@ ZSH_THEME="jr3"
 # git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 plugins=(
-	git
-	sublime
-	zsh-autosuggestions
- 	zsh-syntax-highlighting
+  sublime
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-
 # Aliases I use the most
 alias .zsh="subl ~/.zshrc"
-alias .ohmyzsh="subl ~/.oh-my-zsh"
+alias .ohmyzsh="cd ~/.oh-my-zsh && subl"
 alias e="exit"
 alias c="clear"
+alias home="cd ~"
 alias shutdown="sudo halt -p"
 alias ..="cd .."
 alias subl="subl ."
-alias cdn="cd ~/.config/nvim/ && nvim ."
 alias n="nvim ."
+#alias code="code ."
+alias cdn="cd ~/.config/nvim/ && nvim ."
 alias update="sudo dnf update && sudo dnf upgrade"
+alias install="sudo dnf install"
+alias remove="sudo dnf autoremove"
+alias autoremove="sudo dnf autoremove"
 alias neo="neofetch"
 alias su="sudo su"
-alias reload-zshrc="source ~/.zshrc"
-alias reload-bashrc="source ~/.bashrc"
-alias ll="ls -CA"
-alias ls="ls -LAH"
-alias qtile="cd ~/.config/qtile/ && code ."
+alias reload="source ~/.zshrc"
+#alias reload="source ~/.bashrc"
+alias ll="ls -FH"
+alias ls="ls -LA"
+alias qtile="cd ~/.config/qtile/ && subl ."
 alias ifconfig="curl ifconfig.io"
+alias modehack="cmatrix"
+alias tasksmgr="gnome-system-monitor"
 #alias =""
 #alias =""
 #alias =""
@@ -138,3 +113,4 @@ alias gl="git pull"
 alias gbr="git branch -M main"
 alias gb="git branch"
 alias gch="git checkout"
+alias gm="git merge"
