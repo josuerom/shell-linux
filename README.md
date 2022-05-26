@@ -1,5 +1,5 @@
 # .zshrc para Fedora Linux
-Usa este configuración sencilla de zsh en cualquier distro de linux te funcionará, solo deberás modificarle lo que desees
+Te inbito a que uses esta configuración sencilla de ZSH en cualquier distribucin de Linux te funcionará, solo no deberás modificarle el (ZSH-THEME), lo dems si.
 
 # jr3.zsh-theme
 Este es mi propio tema para la shell ***ZSH***, si quieres probarlo deberás pegar el archivo [jr3.zsh-theme](https://github.com/josuerom/.zshrc/blob/main/jr3.zsh-theme) en la siguiente ruta de tu distribución:
