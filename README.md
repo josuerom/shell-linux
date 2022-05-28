@@ -4,8 +4,8 @@ Te invito a que uses ésta configuración sencilla de ZSH en cualquier distribuc
 ## .bashrc para Fedora Linux
 Te invito a que uses ésta configuración sencilla de BASH en cualquier distribucin de Linux te funcionará, solo no deberás modificarle el (BASH-THEME), lo demás si.
 
-## jr3.zsh-theme
-Este es mi propio tema para la shell ***ZSH***, si quieres probarlo deberás pegar el archivo [jr3.zsh-theme](https://github.com/josuerom/shell-linux/blob/main/jr3.zsh-theme) en la siguiente ruta de tu distribución:
+## josuerom.zsh-theme
+Este es mi propio tema para la shell ***ZSH***, si quieres probarlo deberás pegar el archivo [josuerom.zsh-theme](https://github.com/josuerom/shell-linux/blob/main/josuerom.zsh-theme) en la siguiente ruta de tu distribución:
 ~~~zsh
  $HOME/.oh-my-zsh/themes/
 ~~~
