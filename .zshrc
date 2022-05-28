@@ -4,7 +4,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Theme for shell
 ZSH_THEME="af-magic"
 #ZSH_THEME="lambda"
-#ZSH_THEME="jr3"
+#ZSH_THEME="josuerom"
 
 # Clona los dos plugins que manejo y el tema powerlevel10k
 # git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
