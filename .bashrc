@@ -135,25 +135,31 @@ source "$OSH"/oh-my-bash.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-bash
 # users are encouraged to define aliases within the OSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
+
+# All aliases
+alias ..='cd ..'
 alias c='clear'
 alias e='exit'
 alias n='nvim'
 alias del='rm -rf'
 alias sdel='sudo rm -rf'
-alias nf='touch'
-alias nd='mkdir'
-alias su='sudo -i'
+alias czsh="nvim ~/.oh-my-bash"
 alias cbash="nvim ~/.bashrc"
 alias rbash="source ~/.bashrc"
 alias chome="clear && cd ~"
 alias update='sudo dnf update -y && sudo dnf upgrade -y'
+alias install="sudo dnf install"
+alias remove="sudo dnf remove"
+alias autoremove="sudo dnf autoremove -y"
+alias su="sudo -i"
+alias neo="clear && neofetch"
+alias modehacker="cmatrix"
+alias cnvim="cd ~/.config/nvim/ && nvim ."
 alias cf='clear && cd ~/workspace/CF/solutions/'
-alias cw='clear && cd ~/workspace/ && ls -la'
+alias cw='clear && cd ~/workspace/ && ls'
 alias generaterpc='python3 ~/workspace/automations/GenerateContestRPC.py'
 alias generatecf='python3 ~/workspace/automations/GenerateContestCF.py'
 alias temcpp='cp -r ~/workspace/templates/template.cpp A_.cpp && nvim A_.cpp'
 alias temjava='cp -r ~/workspace/templates/template.java A_.java && nvim A_.java'
-alias runjava='clear && compile_and_run() { time java $1; }; compile_and_run'
-alias runpp='clear && compile_and_run() { g++ -std=c++17 -Wall -pedantic -Djosuerom -D_2BITS $1 -o /home/josuerom/workspace/bin/exe.out && time /home/josuerom/workspace/bin/exe.out; }; compile_and_run'
+alias runjava='clear && compile_and_run_java() { time java $1; }; compile_and_run_java'
+alias runcpp='clear && compile_and_run_cpp() { g++ -std=c++17 -Wall -Djosuerom -D_2BITS $1 -o /home/josuerom/workspace/bin/exe.out && time /home/josuerom/workspace/bin/exe.out; }; compile_and_run_cpp'
