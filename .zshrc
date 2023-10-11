@@ -18,29 +18,40 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Aliases I use the most
-alias czsh="nvim ~/.zshrc"
-alias rzsh="source ~/.zshrc"
-alias e="exit"
-alias c="clear"
+# All aliases
+alias ..='cd ..'
+alias c='clear'
+alias e='exit'
+alias n='nvim'
+alias del='rm -rf'
+alias sdel='sudo rm -rf'
+alias czsh="nvim ~/.oh-my-bash"
+alias cbash="nvim ~/.bashrc"
+alias rbash="source ~/.bashrc"
 alias chome="clear && cd ~"
-alias shutdown="sudo halt -p"
-alias ..="cd .."
-alias subl="subl ."
-alias n="nvim"
-alias code="code ."
-alias cdn="cd ~/.config/nvim/ && nvim ."
-alias update="sudo dnf update -y && sudo dnf upgrade -y"
+alias update='sudo dnf update -y && sudo dnf upgrade -y'
 alias install="sudo dnf install"
 alias remove="sudo dnf remove"
 alias autoremove="sudo dnf autoremove -y"
-alias neo="neofetch"
 alias su="sudo -i"
+alias neo="clear && neofetch"
+alias modehacker="cmatrix"
+alias cnvim="cd ~/.config/nvim/ && nvim ."
+alias cf='clear && cd ~/workspace/CF/solutions/'
+alias cw='clear && cd ~/workspace/ && ls'
+alias generaterpc='python3 ~/workspace/automations/GenerateContestRPC.py'
+alias generatecf='python3 ~/workspace/automations/GenerateContestCF.py'
+alias temcpp='cp -r ~/workspace/templates/template.cpp A_.cpp && nvim A_.cpp'
+alias temjava='cp -r ~/workspace/templates/template.java A_.java && nvim A_.java'
+alias runjava='clear && compile_and_run_java() { time java $1; }; compile_and_run_java'
+alias runcpp='clear && compile_and_run_cpp() { g++ -std=c++17 -Wall -Djosuerom -D_2BITS $1 -o ~/workspace/bin/exe.out && time ~/workspace/bin/exe.out; }; compile_and_run_cpp'
+alias shutdown="sudo halt -p"
+alias subl="subl ."
+alias code="code ."
 alias ll="ls -FH"
 alias ls="ls -la"
 alias qtile="cd ~/.config/qtile/ && subl ."
 alias ipconfig="curl ifconfig.io"
-alias hacker="cmatrix"
 alias tasksmgr="gnome-system-monitor"
 #alias =""
 
