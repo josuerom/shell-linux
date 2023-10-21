@@ -12,7 +12,6 @@ OMB_USE_SUDO=true
 
 completions=(
   git
-  composer
   ssh
 )
 
@@ -25,7 +24,7 @@ plugins=(
   bashmarks
 )
 
-# All aliases
+# All aliases for the Terminus
 alias ..='cd ..'
 alias c='clear'
 alias e='exit'
@@ -36,7 +35,7 @@ alias del='rm -rf'
 alias sdel='sudo rm -rf'
 alias cbash="nvim ~/.bashrc"
 alias rbash="source ~/.bashrc"
-alias chome="clear && cd ~"
+alias cdh="clear && cd ~"
 alias update='sudo dnf upgrade -y && sudo dnf update -y'
 alias install="sudo dnf install"
 alias remove="sudo dnf remove"
