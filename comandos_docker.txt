@@ -1,0 +1,5 @@
+# Crear y configurar base de datos mysql
+docker run -d -it --name mysql -v /home/josuerom/Docker/mysql/:/file_share -p 5000:3306 --network Genesis --network-alias mysqldb -e MYSQL_ROOT_PASSWORD=Jo320872. -d mysql:8.0.35 /bin/bash
+
+# Entrar al contenedor
+docker exec -it mysql bash
