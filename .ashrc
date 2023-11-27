@@ -1,0 +1,24 @@
+# Aliases by josuerom
+alias c="clear"
+alias e="exit"
+alias ..="cd .."
+alias cash="nvim ~/.ashrc"
+alias rash="source ~/.ashrc"
+alias rpro='source ~/.profile'
+alias cnvim="nvim ~/.config/nvim/init.vim"
+alias n="nvim"
+alias cw="cd /workspace && ls"
+alias cf="clear && cd /workspace/codeforces && ls"
+alias cdh="cd ~ && ls -la"
+alias ll="ls -la"
+alias del="rm -rf"
+alias install="apk add"
+alias update="apk upgrade && apk update"
+alias remove="apk del --purge"
+alias neo="clear && neofetch"
+alias modehacker="cmatrix"
+alias autocf='clear && python3 ~/workspace/Contests/GenerateContestCF.py'
+alias temcpp='copy_template() { cp -r ~/workspace/templates/template.cpp $1.cpp && nvim $1.cpp; }; copy_template'
+alias temjava='copy_template() { cp -r ~/workspace/templates/template.java $1.java && nvim $1.java; }; copy_template'
+alias runjava='compile_and_run() { javac -d ~/workspace/bin $1.java && java -cp /workspace/bin $1; }; compile_and_run'
+alias runcpp='compile_and_run() { g++ $1 -o ~/workspace/bin/exe.out -std=c++17 -Wall -march=native -DDEBUG -DLOCAL && ~/workspace/bin/exe.out; }; compile_and_run'
