@@ -1,0 +1,17 @@
+window:
+  dimensions:
+    columns: 92
+    lines: 28
+
+  startup_mode: Windowed
+
+font:
+  size: 8.20
+  normal:
+    family: JetBrainsMono Nerd Font
+    #family: UbuntuMono Nerd Font
+    #family: SpaceMono Nerd Font
+
+cursor:
+  thickness: 2
+  shape: Bar
