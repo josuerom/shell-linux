@@ -1,59 +1,134 @@
-# @author. josuerom
+# ~/.bashrc: josuerom
+# If not running interactively, don't do anything
 case $- in
-  *i*) ;;
-    *) return;;
+    *i*) ;;
+      *) return;;
 esac
 
-export OSH='/home/josuerom/.oh-my-bash'
-source "$OSH"/oh-my-bash.sh
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
 
-OSH_THEME="font"
-OMB_USE_SUDO=true
+# append to the history file, don't overwrite it
+shopt -s histappend
 
-completions=(
-  git
-  ssh
-)
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
 
-aliases=(
-  general
-)
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
 
-plugins=(
-  git
-  bashmarks
-)
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
 
-# All aliases for the Terminus
-alias ..='cd ..'
+# make less more friendly for non-text input files, see lesspipe(1)
+#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
 alias c='clear'
 alias e='exit'
-alias n='nvim'
-alias ll="ls -FH"
-alias ls="ls"
+alias v='vim'
+alias ..='cd ..'
+alias ls='ls --color=auto'
+alias ll='ls -la --color=auto'
+alias la='ls -A --color=auto'
+alias mk='touch'
 alias del='rm -rf'
 alias sdel='sudo rm -rf'
-alias cbash="nvim ~/.bashrc"
-alias rbash="source ~/.bashrc"
-alias cdh="clear && cd ~"
-alias update='sudo dnf upgrade -y && sudo dnf update -y'
-alias install="sudo dnf install"
-alias remove="sudo dnf remove"
-alias autoremove="sudo dnf autoremove -y"
-alias update-snap="sudo snap refresh"
-alias remove-snap="sudo snap remove"
-alias su="sudo -i"
+alias smv='sudo mv'
+alias cdh='cd ~'
+alias cdw='cd ~/workspace'
+alias cbash='vim ~/.bashrc'
+alias cdcf='cd ~/workspace/codeforces/src/900'
+alias concf='cd ~/workspace/contest/CF/'
+alias conrpc='cd ~/workspace/contest/RPC/'
+alias update='sudo apt update -y && sudo apt upgrade -y'
+alias install="sudo apt install"
+alias remove="sudo apt purge"
 alias neo="clear && neofetch"
-alias modehacker="cmatrix"
-alias cnvim="cd ~/.config/nvim/ && nvim ."
-alias cf='clear && cd ~/workspace/CF/solutions/'
-alias cw='clear && cd ~/workspace/ && ls'
-alias autorpc='python3 ~/workspace/Contests/AUTO/GenerateContestRPC_Linux.py'
-alias autocf='python3 ~/workspace/Contests/AUTO/GenerateContestCF_Linux.py'
-alias temcpp='copy_template() { cp -r ~/workspace/templates/template.cpp $1.cpp && nvim $1.cpp; }; copy_template'
-alias temjava='copy_template() { cp -r ~/workspace/templates/template.java $1.java && nvim $1.java; }; copy_template'
-alias runjava='compile_and_run() { time java $1; }; compile_and_run'
-alias runcpp='compile_and_run() { g++ -std=c++17 -Wall -pedantic -DDEBUG -DLOCAL $1 -o ~/workspace/bin/exe.out && time ~/workspace/bin/exe.out; }; compile_and_run'
-
-# Login in server limited
-alias loginjromero='ssh jromero@186.154.204.117 -p 57033'
+alias modh="clear && cmatrix"
+alias autorpc='python3 ~/workspace/contest/AUTO/GenerateContestRPC_Linux.py'
+alias autocf='python3 ~/workspace/contest/AUTO/GenerateContestCF_Linux.py'
+alias temcpp='copy_template() { cp -r ~/workspace/contest/TEMPLATES/template.cpp $1.cpp && vim $1.cpp; }; copy_template'
+alias temjava='copy_template() { cp -r ~/workspace/contest/TEMPLATES/template.java $1.java && vim $1.java; }; copy_template'
+alias runjava='compile_and_run() { java $1; }; compile_and_run'
+alias runcpp='compile_and_run() { g++ -std=c++17 -DLOCAL $1 -o ~/workspace/bin/exe && ~/workspace/bin/exe; }; compile_and_run'
+alias ctoken='cat ~/workspace/token | xclip -selection clipboar'
